@@ -58,7 +58,7 @@ export default function FormText(props) {
         </div>
         <div className={`container my-3 text-${props.mode==="light"?"dark":"light"}`}>
           <h1>Your Text Summary</h1>
-          <p>{text.split(".").length} sentences, {text.split(" ").length} words, {text.length} letters</p>
+          <p>{text.split(".").filter((element)=>{return element.length!==0}).length} sentences, {text.split(" ").filter((element)=>{return element.length!==0}).length} words, {text.length} letters</p>
           <p>{text.split(" ").length * 0.008} minutes to read</p>
           <h3>Preview</h3>
           <p>{text.length>0?text:"Enter something in Box to preview here"}</p>

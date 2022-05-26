@@ -45,12 +45,13 @@ function App() {
       <>
         <Navbar title= "TextUtils" mode= {mode} toggleMode={toggleMode}/>
         <Alert alert= {alert}/>
+        
         <Routes>
           <Route exact path="/" element={<FormText showAlert={showAlert} heading="Enter the text to analyze below" mode={mode}/>}></Route>
           <Route exact path="/about" element={<About />}></Route>
         </Routes>
       </>
-    </BrowserRouter>
+     </BrowserRouter>
   );
 }
 
