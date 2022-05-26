@@ -28,6 +28,7 @@ export default function FormText(props) {
     Text.select();
     //  console.log(text)
     navigator.clipboard.writeText(Text.value);
+    document.getSelection().removeAllRanges();
     props.showAlert( "Text is copied", "success")
   }
   
@@ -50,11 +51,11 @@ export default function FormText(props) {
         <div className= {`mb-3 container text-${props.mode==="light"?"dark":"light"}`}>
             <textarea className={`form-control text-${props.mode==="light"?"dark":"light"} bg-${props.mode}`} value={text} onChange={handleOnChange}  id="textArea" rows="8"></textarea>
         </div>
-            <button className="btn btn-primary mx-1" onClick = {handleUpChange} >UPPERCASE</button>
-            <button className="btn btn-primary mx-1" onClick = {handleLowChange} >lowercase</button>
-            <button className="btn btn-primary mx-1" onClick = {handleClearChange} >Clear</button>
-            <button className="btn btn-primary mx-1" onClick = {handleCopyChange} >Copy</button>
-            <button className="btn btn-primary mx-1" onClick = {handleExtraSpaces} >Delete Extra Spaces</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1" onClick = {handleUpChange} >UPPERCASE</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1" onClick = {handleLowChange} >lowercase</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1" onClick = {handleClearChange} >Clear</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1" onClick = {handleCopyChange} >Copy</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1" onClick = {handleExtraSpaces} >Delete Extra Spaces</button>
         </div>
         <div className={`container my-3 text-${props.mode==="light"?"dark":"light"}`}>
           <h1>Your Text Summary</h1>
