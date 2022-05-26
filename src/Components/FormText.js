@@ -24,11 +24,9 @@ export default function FormText(props) {
   }
   
   const handleCopyChange = ()=> {
-    let Text = document.getElementById("textArea") ;
-    Text.select();
+  
     //  console.log(text)
-    navigator.clipboard.writeText(Text.value);
-    document.getSelection().removeAllRanges();
+    navigator.clipboard.writeText(Text);
     props.showAlert( "Text is copied", "success")
   }
   
